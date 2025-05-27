@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSim Audio Studio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="studio-container">
+        <header class="studio-header">
+            <h1>🎵 WebSim Audio Studio</h1>
+            <div class="master-controls">
+                <button id="playAllBtn" class="control-btn play-btn">▶️</button>
+                <button id="pauseAllBtn" class="control-btn pause-btn">⏸️</button>
+                <button id="stopAllBtn" class="control-btn stop-btn">⏹️</button>
+                <div class="master-volume">
+                    <label>Master</label>
+                    <input type="range" id="masterVolume" min="0" max="100" value="75">
+                </div>
+            </div>
+        </header>
+
+        <div class="import-section">
+            <h3>Import Instruments</h3>
+            <div class="import-buttons">
+                <button class="import-btn" data-type="keyboard">🎹 Import Keyboard</button>
+                <button class="import-btn" data-type="drums">🥁 Import Drums</button>
+                <button class="import-btn" data-type="bass">🎸 Import Bass</button>
+                <button class="import-btn" data-type="microphone">🎤 Import Microphone</button>
+            </div>
+        </div>
+
+        <div class="tracks-container">
+            <div class="tracks-header">
+                <h3>Tracks</h3>
+                <div class="global-controls">
+                    <button id="metronomeBtn" class="control-btn">🥁 Metronome</button>
+                    <div class="tempo-control">
+                        <label>BPM: <span id="bpmDisplay">120</span></label>
+                        <input type="range" id="tempoSlider" min="60" max="200" value="120">
+                    </div>
+                </div>
+            </div>
+            <div id="tracksList" class="tracks-list">
+                <!-- Tracks will be dynamically added here -->
+            </div>
+        </div>
+
+        <div class="visualization-container">
+            <canvas id="visualizer" width="800" height="200"></canvas>
+        </div>
+    </div>
+
+    <!-- Instrument Simulators (Hidden) -->
+    <div id="instrumentSimulators" style="display: none;">
+        <!-- Keyboard Simulator -->
+        <div id="keyboardSim" class="instrument-sim">
+            <div class="keyboard">
+                <div class="key white" data-note="C4">C</div>
+                <div class="key black" data-note="C#4">C#</div>
+                <div class="key white" data-note="D4">D</div>
+                <div class="key black" data-note="D#4">D#</div>
+                <div class="key white" data-note="E4">E</div>
+                <div class="key white" data-note="F4">F</div>
+                <div class="key black" data-note="F#4">F#</div>
+                <div class="key white" data-note="G4">G</div>
+                <div class="key black" data-note="G#4">G#</div>
+                <div class="key white" data-note="A4">A</div>
+                <div class="key black" data-note="A#4">A#</div>
+                <div class="key white" data-note="B4">B</div>
+            </div>
+        </div>
+
+        <!-- Drum Simulator -->
+        <div id="drumSim" class="instrument-sim">
+            <div class="drum-pads">
+                <div class="drum-pad" data-drum="kick">Kick</div>
+                <div class="drum-pad" data-drum="snare">Snare</div>
+                <div class="drum-pad" data-drum="hihat">Hi-Hat</div>
+                <div class="drum-pad" data-drum="crash">Crash</div>
+            </div>
+        </div>
+
+        <!-- Bass Simulator -->
+        <div id="bassSim" class="instrument-sim">
+            <div class="bass-strings">
+                <div class="bass-string" data-note="E2">E</div>
+                <div class="bass-string" data-note="A2">A</div>
+                <div class="bass-string" data-note="D3">D</div>
+                <div class="bass-string" data-note="G3">G</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="audio-engine.js"></script>
+    <script src="track-manager.js"></script>
+    <script src="instruments.js"></script>
+    <script src="visualizer.js"></script>
+    <script src="main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
